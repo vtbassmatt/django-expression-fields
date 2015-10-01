@@ -11,6 +11,7 @@ Python does the math and stores the result in the database. For example, suppose
 Suppose Things come in packs of 12 for $7.99. Your users have to do some math to fill in the cost of a single Thing, $0.67.
 
 But not with an expression field! Create your form like this:
+
 	class ThingForm(forms.Form):
 		cost = DecimalExpressionField(
 			max_digits=5, decimal_places=2, required=False)
@@ -23,8 +24,8 @@ Requirements and Installation
 
 Right now, the project has no dependencies.
 
-`pip install django-expression-fields`
-Add expression_fields to your INSTALLED_APPS.
+* `pip install django-expression-fields`
+* Add expression_fields to your INSTALLED_APPS.
 
 
 Use
