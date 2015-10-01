@@ -24,3 +24,20 @@ class DivideDecimalField(DecimalField):
             return round(tp(numerator) / tp(denominator), self.decimal_places)
         else:
             return super(DivideDecimalField, self).to_python(value)
+
+
+class FutureField(object):
+    def __init__(self, *args, **kwargs):
+        raise NotImplementedError
+
+
+class DecimalExpressionField(FutureField):
+    pass
+
+
+class FloatExpressionField(FutureField):
+    pass
+
+
+class IntegerExpressionField(FutureField):
+    pass
