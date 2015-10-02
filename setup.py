@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.1.1'
+version = '0.1.2'
 README = """
 django-expression-fields lets your users type a mathematical expression in a form field.
 Python does the math and stores the result in the database. For example, suppose you have a model to track Things, like this::
@@ -18,7 +18,7 @@ But not with an expression field! Create your form like this::
 		cost = DecimalExpressionField(
 			max_digits=5, decimal_places=2, required=False)
 
-Now you user can simply type ``7.99/12`` in the field and Python will do the math for them!
+Now your user can simply type ``7.99/12`` in the field and Python will do the math for them!
 """
 
 # allow setup.py to be run from any path

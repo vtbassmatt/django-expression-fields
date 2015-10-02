@@ -16,7 +16,7 @@ But not with an expression field! Create your form like this:
 		cost = DecimalExpressionField(
 			max_digits=5, decimal_places=2, required=False)
 
-Now you user can simply type `7.99/12` in the field and Python will do the math for them!
+Now your user can simply type `7.99/12` in the field and Python will do the math for them!
 
 
 Requirements and Installation
