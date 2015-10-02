@@ -48,9 +48,9 @@ Tests
 Limitations
 -----------
 
-Right now there is only the `DivideDecimalField` which allows a single division sign.
-It's a proof of concept for a fuller `DecimalExpression` field which will allow full expressions.
-I later intend to build Integer and Float expression fields as well.
+* Only `DecimalExpressionField` exists today. I later intend to build Integer and Float expression fields as well.
+* This field slightly changes the behavior of the existing `DecimalField`: Inputs that would rejected for having too many digits after the decimal are instead rounded.
+* For historical reasons, there's a `DivideDecimalField` which allows a single division sign.
 
 
 Contributions
