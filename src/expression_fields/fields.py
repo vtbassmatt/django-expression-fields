@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.forms.fields import DecimalField
 from django.forms.widgets import TextInput
 from django.utils import formats
@@ -21,9 +22,14 @@ class DivideDecimalField(DecimalField):
             value = formats.sanitize_separators(value)
         value = smart_text(value).strip()
         if '/' in value:
-            numerator, denominator = value.split('/', maxsplit=2)
+            numerator, denominator = value.split('/', 2)
             tp = super(DivideDecimalField, self).to_python
-            return round(tp(numerator) / tp(denominator), self.decimal_places)
+            value = tp(numerator) / tp(denominator)
+            if value:
+                # In Python 3, a simple round() call is enough. To support
+                # Python 2, we have to do this quantize thing.
+                quantize_target = ".".join(["1", "0" * self.decimal_places])
+                return value.quantize(Decimal(quantize_target))
         else:
             return super(DivideDecimalField, self).to_python(value)
 
@@ -42,10 +48,14 @@ class DecimalExpressionField(DecimalField):
         value = smart_text(value).strip()
         value = calculate(value)
         value = super(DecimalExpressionField, self).to_python(value)
-        try:
-            return round(value, self.decimal_places)
-        except (ValueError, TypeError):
-            raise ValidationError('Enter an expression.', code='invalid')
+        if value:
+            # In Python 3, a simple round() call is enough. To support
+            # Python 2, we have to do this quantize thing.
+            try:
+                quantize_target = ".".join(["1", "0" * self.decimal_places])
+                return value.quantize(Decimal(quantize_target))
+            except (ValueError, TypeError):
+                raise ValidationError('Enter an expression.', code='invalid')
 
 
 class FutureField(object):

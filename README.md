@@ -23,7 +23,7 @@ Requirements and Installation
 -----------------------------
 
 Right now, the project has no dependencies outside of Django itself.
-It works with Python 3.4 and work is underway to get it to work in Python 2.7.
+It works with Python 3.4 and 2.7.
 
 * `pip install django-expression-fields`
 * Add expression_fields to your INSTALLED_APPS.

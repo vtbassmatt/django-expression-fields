@@ -1,3 +1,4 @@
+from __future__ import division
 from math import *
 
 def calculate(expr_string):
@@ -14,5 +15,5 @@ def calculate(expr_string):
 
     try:
         return eval(expr_string, { "__builtins__": None }, local_ctx)
-    except (SyntaxError, TypeError):
+    except (SyntaxError, TypeError, NameError):
         return None
