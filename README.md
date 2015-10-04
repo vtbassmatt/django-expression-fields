@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/vtbassmatt/django-expression-fields.svg?branch=master)](https://travis-ci.org/vtbassmatt/django-expression-fields)
+[![PyPI](https://img.shields.io/pypi/v/django-expression-fields.svg)](https://pypi.python.org/pypi/django-expression-fields)
 
 Introduction
 ------------
