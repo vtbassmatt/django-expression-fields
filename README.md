@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vtbassmatt/django-expression-fields.svg?branch=master)](https://travis-ci.org/vtbassmatt/django-expression-fields)
+
 Introduction
 ------------
 
@@ -61,4 +63,4 @@ I built this little project to satisfy a personal need, but thought it might be 
 If you have contributions, please don't hesitate to send a PR.
 Let's keep the tests passing and all will be well.
 My personal stack is currently Django 1.8 on Python 3.4, so that will be the most-tested.
-I have Travis set up to cover Django 1.7, 1.8, and 1.9 on Python 2.7 - 3.5.
+I have Travis set up to cover Django 1.7, 1.8, and 1.9 on Python 2.7, 3.3-3.5, and nightly.
