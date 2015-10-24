@@ -22,6 +22,7 @@ class DivideDecimalTests(unittest.TestCase):
         form4 = DivDecForm({'field1': '123'})
         form5 = DivDecForm({'field2': '123', 'field3': '456'})
         form6 = DivDecForm({'field2': '123', 'field3': '456.0'})
+        form7 = DivDecForm({'field1': '', 'field2': '0.0'})
         self.assertTrue(form1.is_valid())
         self.assertEqual(form1.cleaned_data['field1'], Decimal('256.32'))
         self.assertEqual(form1.cleaned_data['field2'], Decimal('123.4'))
@@ -32,6 +33,10 @@ class DivideDecimalTests(unittest.TestCase):
         self.assertFalse(form4.is_valid())
         self.assertTrue(form5.is_valid())
         self.assertFalse(form6.is_valid())
+        self.assertTrue(form7.is_valid())
+        self.assertEqual(form7.cleaned_data['field1'], None)
+        self.assertEqual(form7.cleaned_data['field2'], Decimal('0'))
+        self.assertEqual(form7.cleaned_data['field3'], None)
 
     def test_divide(self):
         """
