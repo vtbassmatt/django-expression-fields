@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.2.2'
+version = '0.3.0'
 README = """
 django-expression-fields lets your users type a mathematical expression in a form field.
 Python does the math and stores the result in the database. For example, suppose you have a model to track Things, like this::

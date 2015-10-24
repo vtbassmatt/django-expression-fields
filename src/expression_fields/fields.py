@@ -48,7 +48,7 @@ class DecimalExpressionField(DecimalField):
         value = smart_text(value).strip()
         value = calculate(value)
         value = super(DecimalExpressionField, self).to_python(value)
-        if value:
+        if value is not None:
             # In Python 3, a simple round() call is enough. To support
             # Python 2, we have to do this quantize thing.
             try:
