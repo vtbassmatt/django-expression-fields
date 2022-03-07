@@ -26,7 +26,7 @@ Requirements and Installation
 -----------------------------
 
 Right now, the project has no dependencies outside of Django itself.
-It works with Python 3.4 and 2.7.
+It has been updated to work with Python 3.9-3.10 and Django 3.2-4.0.
 
 * `pip install django-expression-fields`
 * Add `expression_fields` to your `INSTALLED_APPS`.
@@ -63,5 +63,3 @@ Contributions
 I built this little project to satisfy a personal need, but thought it might be useful enough for others.
 If you have contributions, please don't hesitate to send a PR.
 Let's keep the tests passing and all will be well.
-My personal stack is currently Django 1.8 on Python 3.4, so that will be the most-tested.
-I have Travis set up to cover Django 1.7, 1.8, and 1.9 on Python 2.7, 3.3-3.5, and nightly.
