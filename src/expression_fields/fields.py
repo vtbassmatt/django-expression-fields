@@ -2,7 +2,7 @@ from decimal import Decimal
 from django.forms.fields import DecimalField
 from django.forms.widgets import TextInput
 from django.utils import formats
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 from django.core.exceptions import ValidationError
 from .expr import calculate
 
@@ -20,7 +20,7 @@ class DivideDecimalField(DecimalField):
             return None
         if self.localize:
             value = formats.sanitize_separators(value)
-        value = smart_text(value).strip()
+        value = smart_str(value).strip()
         if '/' in value:
             numerator, denominator = value.split('/', 2)
             tp = super(DivideDecimalField, self).to_python
@@ -45,7 +45,7 @@ class DecimalExpressionField(DecimalField):
     def to_python(self, value):
         if value in self.empty_values:
             return None
-        value = smart_text(value).strip()
+        value = smart_str(value).strip()
         value = calculate(value)
         value = super(DecimalExpressionField, self).to_python(value)
         if value is not None:
